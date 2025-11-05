@@ -4,7 +4,7 @@ from pymongo import ASCENDING, DESCENDING
 import bcrypt
 
 from db import db
-from utils.util import json_response, oid
+from util import json_response, oid
 
 app = Flask(__name__)
 CORS(app, resources={r"/api/*": {"origins": "*"}})  # tighten in prod
