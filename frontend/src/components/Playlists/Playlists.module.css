@@ -288,3 +288,22 @@
     transform: none;
     box-shadow: none;
 }
+
+.closeButton {
+    color: var(--light-gray);
+    background: transparent;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    transition: color 0.2s ease;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.closeButton:hover {
+    color: #ffffff !important;
+}

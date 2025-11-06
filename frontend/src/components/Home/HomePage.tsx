@@ -11,12 +11,11 @@ import HomeSection from "../HomeContent/HomeSection";
 import ArtistsSection from "../Artists/ArtistsSection";
 import PlaylistsSection from "../Playlists/PlaylistsSection";
 
-type NonSongSection = Exclude<HomeSections, "songs" | "new">;
+type NonSongSection = Exclude<HomeSections, "songs" | "new" | "allPlaylists">;
 const NON_SONG_SECTION_COMPONENTS: Record<NonSongSection, FC> = {
     search: SearchSection,
     home: HomeSection,
     artists: ArtistsSection,
-    allPlaylists: PlaylistsSection,
 };
 
 const HomePage = () => {
@@ -48,6 +47,15 @@ const HomePage = () => {
         mainContent = (
             <div className={styles.content}>
                 <NewReleaseSection
+                    onSelect={handleSongSelect}
+                    activeSongId={selectedTrackId}
+                />
+            </div>
+        );
+    } else if (activeSection === "allPlaylists") {
+        mainContent = (
+            <div className={styles.content}>
+                <PlaylistsSection
                     onSelect={handleSongSelect}
                     activeSongId={selectedTrackId}
                 />

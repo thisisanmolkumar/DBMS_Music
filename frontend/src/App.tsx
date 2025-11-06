@@ -2,7 +2,6 @@ import { AuthProvider } from "./auth/AuthContext";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./styles/theme.css";
 import HomePage from "./components/Home/HomePage";
-import PlaylistSongs from "./components/PlaylistSongs/PlaylistSongs";
 
 const App = () => {
     return (

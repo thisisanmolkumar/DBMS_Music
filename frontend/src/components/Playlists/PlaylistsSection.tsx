@@ -10,6 +10,9 @@ import {
 import { API_BASE_URL } from "../../config/api";
 import { useAuth } from "../../auth/AuthContext";
 import styles from "./Playlists.module.css";
+import PlaylistSongs from "../PlaylistSongs/PlaylistSongs";
+import { IconButton } from "@mui/material";
+import ArrowBackIosNewOutlinedIcon from "@mui/icons-material/ArrowBackIosNewOutlined";
 
 type PlaylistSummary = {
     _id: string;
@@ -34,7 +37,12 @@ type PlaylistDetail = PlaylistSummary & {
     songs?: PlaylistSong[];
 };
 
-const PlaylistsSection = () => {
+type PlaylistSectionProps = {
+    onSelect: (songId: string) => void;
+    activeSongId?: string | null;
+};
+
+const PlaylistsSection = ({ onSelect, activeSongId }: PlaylistSectionProps) => {
     const { user } = useAuth();
     const [playlists, setPlaylists] = useState<PlaylistDetail[]>([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -43,6 +51,7 @@ const PlaylistsSection = () => {
     const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
     const [newPlaylistName, setNewPlaylistName] = useState("");
     const [createError, setCreateError] = useState<string | null>(null);
+    const [selectedPId, setSelectedPId] = useState("");
     const controllerRef = useRef<AbortController | null>(null);
 
     useEffect(() => {
@@ -265,6 +274,10 @@ const PlaylistsSection = () => {
         }
     };
 
+    useEffect(() => {
+        console.log(selectedPId);
+    }, [selectedPId]);
+
     return (
         <section className={styles.section} aria-labelledby="playlists-title">
             <header className={styles.header}>
@@ -325,47 +338,72 @@ const PlaylistsSection = () => {
                     </p>
                 )}
 
-            {user && !isLoading && !error && playlistsWithCounts.length > 0 && (
-                <ul className={styles.list}>
-                    {playlistsWithCounts.map((playlist) => {
-                        let duration = 0;
-                        playlist.songs?.forEach((song) => {
-                            duration += song.duration_sec ?? 0;
-                        });
+            {user &&
+                !isLoading &&
+                !error &&
+                playlistsWithCounts.length > 0 &&
+                (selectedPId === "" ? (
+                    <ul className={styles.list}>
+                        {playlistsWithCounts.map((playlist) => {
+                            let duration = 0;
+                            playlist.songs?.forEach((song) => {
+                                duration += song.duration_sec ?? 0;
+                            });
 
-                        return (
-                            <li key={playlist._id}>
-                                <article
-                                    className={styles.playlist_card}
-                                    onClick={() => {}}
-                                >
-                                    <div className={styles.cardHeader}>
-                                        <h3 className={styles.cardTitle}>
-                                            {playlist.name}
-                                        </h3>
-                                        <span className={styles.badge}>
-                                            {playlist.songCount}{" "}
-                                            {playlist.songCount === 1
-                                                ? "song"
-                                                : "songs"}
-                                        </span>
-                                    </div>
-                                    {duration !== 0 && (
-                                        <div className={styles.meta}>
-                                            <span>
-                                                {parseInt(
-                                                    (duration / 3600).toString()
-                                                )}
-                                                + Hours of playtime
+                            return (
+                                <li key={playlist._id}>
+                                    <div
+                                        className={styles.playlist_card}
+                                        onClick={() => {
+                                            setSelectedPId(playlist._id);
+                                        }}
+                                    >
+                                        <div className={styles.cardHeader}>
+                                            <h3 className={styles.cardTitle}>
+                                                {playlist.name}
+                                            </h3>
+                                            <span className={styles.badge}>
+                                                {playlist.songCount}{" "}
+                                                {playlist.songCount === 1
+                                                    ? "song"
+                                                    : "songs"}
                                             </span>
                                         </div>
-                                    )}
-                                </article>
-                            </li>
-                        );
-                    })}
-                </ul>
-            )}
+                                        {duration !== 0 && (
+                                            <div className={styles.meta}>
+                                                <span>
+                                                    {parseInt(
+                                                        (
+                                                            duration / 3600
+                                                        ).toString()
+                                                    )}
+                                                    + Hours of playtime
+                                                </span>
+                                            </div>
+                                        )}
+                                    </div>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                ) : (
+                    <div>
+                        <button
+                            onClick={() => {
+                                setSelectedPId("");
+                            }}
+                            className={styles.closeButton}
+                        >
+                            <ArrowBackIosNewOutlinedIcon />
+                            Back
+                        </button>
+                        <PlaylistSongs
+                            onSelect={onSelect}
+                            activeSongId={activeSongId}
+                            pid={selectedPId}
+                        />
+                    </div>
+                ))}
             {isCreateDialogOpen && (
                 <div
                     className={styles.createDialogBackdrop}

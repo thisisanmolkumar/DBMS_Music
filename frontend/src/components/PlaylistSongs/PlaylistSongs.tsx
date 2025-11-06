@@ -1,6 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import styles from "./Songs.module.css";
-import type { Track as AudioTrack } from "../Audio/AudioDialog";
+import styles from "./PlaylistSongs.module.css";
 import { API_BASE_URL } from "../../config/api";
 import { useAuth } from "../../auth/AuthContext";
 
@@ -56,6 +55,7 @@ const PlaylistSongs = ({ onSelect, activeSongId, pid }: PlaylistSongsProps) => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
     const [artistNames, setArtistNames] = useState<Record<string, string>>({});
+    const [playlist, setPlaylist] = useState<PlaylistDocument | null>(null);
 
     useEffect(() => {
         const controller = new AbortController();
@@ -98,6 +98,8 @@ const PlaylistSongs = ({ onSelect, activeSongId, pid }: PlaylistSongsProps) => {
                 }
                 const data: PlaylistResponse = JSON.parse(jsonText);
                 const playlist = Array.isArray(data) ? data[0] : data;
+                setPlaylist(playlist);
+
                 const playlistSongs: PlaylistSong[] = Array.isArray(
                     playlist?.songs
                 )
@@ -200,11 +202,8 @@ const PlaylistSongs = ({ onSelect, activeSongId, pid }: PlaylistSongsProps) => {
             <header className={styles.header}>
                 <div>
                     <h2 className={styles.title} id="song-list-title">
-                        Your songs
+                        {playlist?.name}
                     </h2>
-                    <p className={styles.subtitle}>
-                        Music from your playlist, straight from the server.
-                    </p>
                 </div>
                 <span className={styles.count}>{trackCountLabel}</span>
             </header>
