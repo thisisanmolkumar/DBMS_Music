@@ -76,7 +76,7 @@ def list_songs():
         filt["song_id"] = song_id
     if artist_id:
         filt["artist_id"] = oid(artist_id)
-    print(filt)
+
     cursor = (
         db.songs.find(filt)
         .sort("created_at", DESCENDING)

@@ -1,0 +1,53 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+*.env
+.env.*
+*.sqlite3
+.DS_Store
+
+# PyInstaller
+*.spec
+build/
+dist/
+
+# Unit test / coverage reports
+.coverage
+.tox/
+.nox/
+.pytest_cache/
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints
+
+# === React / Node ===
+node_modules/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build artifacts
+frontend/build/
+frontend/dist/
+frontend/.cache/
+
+# Environment
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# OS
+Thumbs.db
+.DS_Store
+
+# === Project specific ===
+media-server/downloads/
+songs.csv
+__pycache__/
