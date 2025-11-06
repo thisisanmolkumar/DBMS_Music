@@ -1,0 +1,210 @@
+.section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto 4rem;
+    padding: 0 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    margin: 0.5rem 0 0;
+    color: var(--light-gray);
+    font-size: 0.95rem;
+}
+
+.count {
+    color: var(--gray);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pageSummary {
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.statusMessage {
+    margin: 3rem auto 0;
+    max-width: 960px;
+    text-align: center;
+    color: var(--light-gray);
+    font-size: 1.05rem;
+}
+
+.errorMessage {
+    margin: 3rem auto 0;
+    max-width: 960px;
+    text-align: center;
+    color: #ff7676;
+    font-weight: 600;
+}
+
+.grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 18px;
+    overflow: hidden;
+    backdrop-filter: blur(6px);
+    min-height: 320px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+    width: 100%;
+    padding: 0;
+    color: inherit;
+    text-align: left;
+    font: inherit;
+}
+
+.card:hover,
+.card:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+.card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+.cardActive {
+    border-color: rgba(101, 235, 239, 0.8);
+    box-shadow: 0 0 0 2px rgba(101, 235, 239, 0.35);
+}
+
+.coverWrapper {
+    aspect-ratio: 1 / 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.coverFallback {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.25rem;
+}
+
+.track {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.artist {
+    margin: 0;
+    color: var(--light-gray);
+    font-size: 0.9rem;
+}
+
+.meta {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    gap: 0.5rem 1rem;
+    margin-top: 0.25rem;
+    color: var(--gray);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.pagination {
+    margin: 2.5rem auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+}
+
+.pageButton {
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease,
+        background 0.2s ease, border-color 0.2s ease;
+}
+
+.pageButton:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.pageButton:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.pageInfo {
+    font-weight: 600;
+    color: var(--light-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+}

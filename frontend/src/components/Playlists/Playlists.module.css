@@ -1,0 +1,290 @@
+.section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto 4rem;
+    padding: 0 2rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    margin: 0.5rem 0 0;
+    color: var(--light-gray);
+    font-size: 0.95rem;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.createButton {
+    padding: 0.55rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid rgba(101, 235, 239, 0.5);
+    background: rgba(101, 235, 239, 0.12);
+    color: var(--accent);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease,
+        background 0.2s ease, border-color 0.2s ease;
+}
+
+.createButton:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(101, 235, 239, 0.2);
+    background: rgba(101, 235, 239, 0.2);
+    border-color: rgba(101, 235, 239, 0.75);
+}
+
+.createButton:active {
+    transform: translateY(0);
+}
+
+.createButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.count {
+    color: var(--gray);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.statusMessage {
+    margin: 2.5rem auto 0;
+    text-align: center;
+    color: var(--light-gray);
+    font-size: 1rem;
+    max-width: 640px;
+}
+
+.errorMessage {
+    margin: 2.5rem auto 0;
+    text-align: center;
+    color: #ff7676;
+    font-weight: 600;
+    max-width: 640px;
+}
+
+.list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.playlist_card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.75rem;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.cardTitle {
+    margin: 0;
+    font-size: 1.35rem;
+    font-weight: 600;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(101, 235, 239, 0.12);
+    border: 1px solid rgba(101, 235, 239, 0.4);
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.description {
+    margin: 0;
+    color: var(--light-gray);
+    line-height: 1.55;
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.5rem;
+    font-size: 0.85rem;
+    color: var(--gray);
+}
+
+.code {
+    font-family: "Source Code Pro", Menlo, Monaco, Consolas, "Courier New",
+        monospace;
+    font-size: 0.85em;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.1rem 0.35rem;
+    border-radius: 0.35rem;
+}
+
+.createDialogBackdrop {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(6px);
+    z-index: 1500;
+}
+
+.createDialogCard {
+    width: 100%;
+    max-width: 420px;
+    padding: 2.25rem 2rem;
+    border-radius: 20px;
+    background: rgba(30, 41, 59, 0.95);
+    border: 1px solid rgba(148, 163, 184, 0.18);
+    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.45);
+    color: #f8fafc;
+}
+
+.createDialogTitle {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.createDialogDescription {
+    margin: 0.75rem 0 1.75rem;
+    font-size: 0.95rem;
+    color: rgba(226, 232, 240, 0.75);
+}
+
+.createDialogForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.createDialogLabel {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(226, 232, 240, 0.8);
+}
+
+.createDialogInput {
+    padding: 0.85rem 1rem;
+    border-radius: 12px;
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    background: rgba(15, 23, 42, 0.75);
+    color: #f8fafc;
+    font-size: 0.95rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.createDialogInput::placeholder {
+    color: rgba(148, 163, 184, 0.6);
+}
+
+.createDialogInput:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(101, 235, 239, 0.15);
+    background-color: rgba(15, 23, 42, 0.9);
+}
+
+.createDialogError {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #fca5a5;
+}
+
+.createDialogActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.createDialogCancel,
+.createDialogSubmit {
+    padding: 0.65rem 1.2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease,
+        background 0.2s ease, border-color 0.2s ease;
+}
+
+.createDialogCancel {
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    background: transparent;
+    color: rgba(226, 232, 240, 0.85);
+}
+
+.createDialogCancel:hover:not(:disabled) {
+    border-color: rgba(148, 163, 184, 0.6);
+    color: #f8fafc;
+}
+
+.createDialogSubmit {
+    border: 1px solid rgba(101, 235, 239, 0.6);
+    background: rgba(101, 235, 239, 0.2);
+    color: var(--accent);
+}
+
+.createDialogSubmit:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 22px rgba(101, 235, 239, 0.18);
+    background: rgba(101, 235, 239, 0.3);
+    border-color: rgba(101, 235, 239, 0.85);
+}
+
+.createDialogCancel:disabled,
+.createDialogSubmit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}

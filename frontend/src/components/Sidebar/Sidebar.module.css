@@ -1,0 +1,83 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 98vh;
+    background-color: rgba(50, 50, 50, 0.5);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0 15px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+    z-index: 100;
+    backdrop-filter: blur(12px);
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.logo_icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+}
+
+.navLink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    border-radius: 10px;
+    color: var(--light-gray);
+    transition: all 0.1s ease-in-out;
+    font-size: 0.8rem;
+    padding: 10px 20px 10px 10px;
+}
+
+.navActive {
+    color: #ffffff;
+    background-color: var(--muted-primary);
+    ;
+}
+
+.navLink:hover {
+    color: #ffffff;
+}
+
+.section {
+    font-size: 0.7rem;
+    color: var(--gray);
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    border-radius: 10px;
+    color: var(--light-gray);
+    transition: all 0.1s ease-in-out;
+    font-size: 0.9rem;
+    padding: 10px 20px 10px 10px;
+    margin-bottom: 20px;
+}
+
+.account:hover {
+    color: #ffffff;
+}

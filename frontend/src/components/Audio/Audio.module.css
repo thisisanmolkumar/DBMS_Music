@@ -1,0 +1,257 @@
+.main {
+    color: #f5f5f5;
+    position: fixed;
+    bottom: 24px;
+    left: calc(var(--sidebar-width) + (100vw - var(--sidebar-width)) / 2);
+    transform: translateX(-50%);
+    width: min(900px, calc(100vw - var(--sidebar-width) - 3rem));
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 18px;
+    background-color: rgba(17, 17, 17, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 50px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+@media (max-width: 768px) {
+    .main {
+        left: 50%;
+        width: calc(100vw - 2rem);
+    }
+}
+
+.trackInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.trackLabel {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #9f9f9f;
+}
+
+.trackTitle {
+    font-size: 16px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.trackTitleRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.likeButton {
+    border: none;
+    background: transparent;
+    color: #3d3d3d;
+    cursor: pointer;
+    padding: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.15s ease-in-out, transform 0.15s ease-in-out;
+}
+
+.likeButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.likeButton:not(:disabled):hover {
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+.likeButtonActive {
+    color: #f87171;
+}
+
+.likeButtonActive:not(:disabled):hover {
+    color: #fca5a5;
+}
+
+.transport {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.controlButton {
+    border: none;
+    /* background-color: rgba(17, 17, 17, 0.5); */
+    background: transparent;
+    color: #3d3d3d;
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+    padding: 0;
+}
+
+.controlButton:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.controlButton:not(:disabled):hover {
+    color: #ffffff;
+}
+
+.progressGroup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    gap: 8px;
+}
+
+.time {
+    font-variant-numeric: tabular-nums;
+    font-size: 12px;
+    color: #bbbbbb;
+}
+
+.seek {
+    width: 100%;
+}
+
+.volumeGroup {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.volumeLabel {
+    font-size: 12px;
+    color: #3d3d3d;
+    padding-top: 2px;
+}
+
+.volumeLabel:hover {
+    color: #ffffff;
+}
+
+.volume {
+    width: 140px;
+}
+
+.playlistMenu {
+    position: relative;
+}
+
+.playlistToggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(17, 17, 17, 0.4);
+    color: #d1d1d1;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease,
+        background 0.2s ease, border-color 0.2s ease;
+}
+
+.playlistToggle:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.playlistToggle:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.playlistToggleLabel {
+    pointer-events: none;
+}
+
+.playlistDropdown {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    right: 0;
+    width: 240px;
+    padding: 12px;
+    border-radius: 14px;
+    background: rgba(12, 12, 12, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1100;
+}
+
+.playlistList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 240px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.playlistOption {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: #f5f5f5;
+    cursor: pointer;
+}
+
+.playlistOption input {
+    accent-color: var(--accent);
+}
+
+.playlistStatus {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #c7d2fe;
+}
+
+.playlistError {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #fca5a5;
+}
+
+@media screen and (max-width: 900px) {
+    .controlsBar {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .transport {
+        justify-content: center;
+    }
+
+    .progressGroup {
+        grid-template-columns: 48px 1fr 48px;
+    }
+
+    .volumeGroup {
+        justify-content: center;
+    }
+
+}
